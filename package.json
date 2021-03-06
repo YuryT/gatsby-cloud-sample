@@ -10,6 +10,7 @@
   "dependencies": {
     "gatsby": "^3.0.3",
     "gatsby-image": "^3.0.0",
+    "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-source-contentful": "^5.0.1",
@@ -22,8 +23,12 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.2.5",
     "contentful-import": "^7.8.6",
-    "netlify-cli": "^3.10.6"
+    "gatsby-plugin-postcss": "^4.0.0",
+    "netlify-cli": "^3.10.6",
+    "postcss": "^8.2.7",
+    "tailwindcss": "^2.0.3"
   },
   "engines": {
     "node": ">=10.13.0"

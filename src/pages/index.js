@@ -1,86 +1,68 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
-import Hero from '../components/hero'
-import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import Layout from "../components/layout";
+import Hero from "../components/Hero";
+import NavigationBlock from "../components/NavigationBlock";
 
-class RootIndex extends React.Component {
-  render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
+const IndexPage = () => {
+  const data = useStaticQuery(query);
 
-    return (
-      <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
-          <Helmet title={siteTitle} />
-          <Hero data={author.node} />
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
+  return (
+    <Layout>
+      <div className="bg-preudoWhite-default">
+        <Hero props={data.contentfulHero} />
+        <div className="mx-auto">
+          {data.allContentfulMainPageBlock.edges.map((block, i) => {
+            const even = i % 2;
+            return (
+              <NavigationBlock
+                key={block.node.id}
+                even={even === 0}
+                {...block.node}
+              />)
+          })}
+
+
+
         </div>
-      </Layout>
-    )
-  }
-}
+      </div>
+    </Layout>
+  );
+};
 
-export default RootIndex
-
-export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+const query = graphql`
+  query {
+    contentfulHero {
+      header
+      subHeader
+      description { 
+        childMarkdownRemark { html }
+      }
+      image {
+        fixed(width: 800, height: 500) {
+          src
+        }
+      }
+    }
+    allContentfulMainPageBlock(sort: { fields: order, order: ASC }) {
       edges {
         node {
-          title
+          id
           slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
+          label
+          header
+          content {
+            childMarkdownRemark { html }
           }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
+          image {
+            fixed(width: 800, height: 500) {
+              src
             }
           }
         }
       }
     }
   }
-`
+`;
+
+export default IndexPage;

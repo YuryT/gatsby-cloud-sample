@@ -1,18 +1,15 @@
 import React from 'react'
-import './base.css'
-import Container from './container'
-import Navigation from './navigation'
-
+import Nav from "./nav/Nav";
 class Template extends React.Component {
   render() {
-    const { children } = this.props
+    const { children } = this.props;
 
-    return (
-      <Container>
-        <Navigation />
-        {children}
-      </Container>
-    )
+    return  <>
+        <Nav />
+        <main className="bg-backgroundColor text-pseudoWhite-default">
+          {children}
+        </main>
+      </>
   }
 }
 
