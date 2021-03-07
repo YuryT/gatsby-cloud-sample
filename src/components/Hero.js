@@ -42,7 +42,7 @@ const MainText = (props) => (
         <div dangerouslySetInnerHTML={{__html: props.description.childMarkdownRemark.html}} />
       </p>
       <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-        <div>
+        <div className="">
           <Button url='#' label='Заказать'/>
         </div>
         <div className="mt-3 sm:mt-0 sm:ml-3">
