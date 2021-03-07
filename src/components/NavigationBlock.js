@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 import Diagonal from "./Diagonal";
 
 const NavigationBlock = (props) => {
@@ -21,8 +21,8 @@ const NavigationBlock = (props) => {
           <div dangerouslySetInnerHTML={{__html: props.content.childMarkdownRemark.html}} />
         </div>
         <div className={`relative ${imageBlockWidth}`}>
-          <Img
-            fixed={props.image.fixed}
+          <GatsbyImage
+            image={props.image.gatsbyImageData}
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           />
           <Diagonal leftToRight={props.even} />

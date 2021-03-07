@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 import Button from "./Button";
 
 
@@ -41,8 +41,7 @@ const MainText = (props) => (
         className="mt-3 text-base text-pseudoWhite-hover sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
         <div dangerouslySetInnerHTML={{__html: props.description.childMarkdownRemark.html}} />
       </p>
-      <div
-        className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+      <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
         <div>
           <Button url='#' label='Заказать'/>
         </div>
@@ -56,8 +55,8 @@ const MainText = (props) => (
 
 const RightImage = (props) => (
   <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 xl:w-1/2">
-    <Img
-      fixed={props.image.fixed}
+    <GatsbyImage
+      image={props.image.gatsbyImageData}
       className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
     />
   </div>

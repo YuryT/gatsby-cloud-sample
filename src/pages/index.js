@@ -39,9 +39,7 @@ const query = graphql`
         childMarkdownRemark { html }
       }
       image {
-        fixed(width: 800, height: 500) {
-          src
-        }
+         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     allContentfulMainPageBlock(sort: { fields: order, order: ASC }) {
@@ -55,9 +53,7 @@ const query = graphql`
             childMarkdownRemark { html }
           }
           image {
-            fixed(width: 800, height: 500) {
-              src
-            }
+             gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }

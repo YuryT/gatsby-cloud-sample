@@ -13,9 +13,7 @@ const Nav = () => {
         siteTitle
         phone
         logo {
-          fixed(width: 400, height: 400) {
-            src
-          }
+          gatsbyImageData(layout: FIXED, width:40, height:40)
         }
       }
       allContentfulMainPageBlock(sort: { fields: order, order: ASC }) {
