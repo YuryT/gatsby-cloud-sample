@@ -19,6 +19,7 @@ const Nav = () => {
       allContentfulMainPageBlock(sort: { fields: order, order: ASC }) {
         edges {
           node {
+            id
             slug
             label
           }
@@ -45,8 +46,8 @@ const Nav = () => {
             <div className="md:ml-10 md:pr-4 md:space-x-8">
               {data.allContentfulMainPageBlock.edges.map((block, i) => (
                 <NavLinkDesktop
+                  key={block.id}
                   linkContent={block.node}
-                  key={block.node.strapiId}
                 />
               ))}
             </div>
