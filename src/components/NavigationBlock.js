@@ -23,6 +23,7 @@ const NavigationBlock = (props) => {
         <div className={`relative ${imageBlockWidth}`}>
           <GatsbyImage
             image={props.image.gatsbyImageData}
+            alt="block-image"
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           />
           <Diagonal leftToRight={props.even} />

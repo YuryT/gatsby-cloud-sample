@@ -38,8 +38,8 @@ const NavMobile = (props) => (
         <div className="px-2 pt-2 pb-3 space-y-1" role="none">
           {props.data.allContentfulMainPageBlock.edges.map((block, i) => (
             <NavLinkMobile
+              key={block.id}
               linkContent={block.node}
-              key={block.node.strapiId}
             />
           ))}
         </div>
