@@ -41,9 +41,7 @@ const SEO = ({ pageSeo = {} }) => {
       );
     }
     if (fullSeo.seoImage) {
-      const imageUrl =
-        (process.env.GATSBY_ROOT_URL || "http://localhost:8000") +
-        fullSeo.seoImage.file.url;
+      const imageUrl = fullSeo.seoImage.file.url;
       tags.push(
         {
           name: "image",
