@@ -24,23 +24,23 @@ const SEO = ({ pageSeo = {} }) => {
         }
       );
     }
-    if (fullSeo.seoDescription) {
+    if (fullSeo.seoDescription.childMarkdownRemark.html) {
       tags.push(
         {
           name: "description",
-          content: fullSeo.seoDescription,
+          content: fullSeo.seoDescription.childMarkdownRemark.html,
         },
         {
           property: "og:description",
-          content: fullSeo.seoDescription,
+          content: fullSeo.seoDescription.childMarkdownRemark.html,
         },
         {
           name: "twitter:description",
-          content: fullSeo.seoDescription,
+          content: fullSeo.seoDescription.childMarkdownRemark.html,
         }
       );
     }
-    if (fullSeo.shareImage) {
+    if (fullSeo.seoImage) {
       const imageUrl =
         (process.env.GATSBY_ROOT_URL || "http://localhost:8000") +
         fullSeo.seoImage.file.url;
