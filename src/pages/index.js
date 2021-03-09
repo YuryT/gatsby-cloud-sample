@@ -6,11 +6,13 @@ import NavigationBlock from "../components/NavigationBlock";
 
 const IndexPage = () => {
   const data = useStaticQuery(query);
-
   return (
     <Layout>
       <div className="bg-preudoWhite-default">
-        <Hero props={data.contentfulHero} />
+        <Hero props={{
+          ...data.contentfulHero,
+          buttonsData: data.allContentfulHeroButton,
+        }}/>
         <div className="mx-auto">
           {data.allContentfulMainPageBlock.edges.map((block, i) => {
             const even = i % 2;
@@ -41,6 +43,15 @@ const query = graphql`
       image {
          gatsbyImageData(layout: FULL_WIDTH)
       }
+    }
+    allContentfulHeroButton(filter:{visible:{eq:true}}) {
+       edges {
+          node {
+            id
+            label
+            url
+          }
+        }
     }
     allContentfulMainPageBlock(sort: { fields: order, order: ASC }) {
       edges {
