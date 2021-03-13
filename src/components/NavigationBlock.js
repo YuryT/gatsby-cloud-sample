@@ -1,6 +1,7 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image"
 import Diagonal from "./Diagonal";
+import PropTypes from "prop-types";
 
 const NavigationBlock = (props) => {
   let imageBlockWidth = "lg:w-52/100 xl:w-48/100 2xl:w-1/2";
@@ -31,6 +32,17 @@ const NavigationBlock = (props) => {
       </div>
     </div>
   );
+};
+
+NavigationBlock.propTypes = {
+  header: PropTypes.string.isRequired,
+  even: PropTypes.bool,
+  slug: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
+};
+
+NavigationBlock.defaultProps = {
+  even: false,
 };
 
 export default NavigationBlock;

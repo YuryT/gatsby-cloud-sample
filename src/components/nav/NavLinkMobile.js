@@ -1,5 +1,6 @@
 import React from "react";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
+import PropTypes from "prop-types";
 
 const NavLinkMobile = (props) => (
   <AnchorLink
@@ -9,6 +10,13 @@ const NavLinkMobile = (props) => (
   >
     {props.linkContent.label}
   </AnchorLink>
-)
+);
+
+NavLinkMobile.propTypes = {
+  linkContent: PropTypes.shape({
+    slug: PropTypes.string,
+    label: PropTypes.string,
+  }).isRequired,
+};
 
 export default NavLinkMobile;

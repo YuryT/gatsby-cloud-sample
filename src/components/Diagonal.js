@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Diagonal = (props) => {
   let polygon;
@@ -11,12 +12,20 @@ const Diagonal = (props) => {
     classModifier = "-translate-x-1/2";
   }
   return (<svg
-      className={`hidden  lg:block absolute inset-y-0 h-full w-48 text-backgroundColor transform ${classModifier} `}
-      fill="currentColor" viewBox="0 0 100 100"
-      preserveAspectRatio="none" aria-hidden="true">
+      className={`hidden lg:block absolute inset-y-0 h-full w-48 
+      text-backgroundColor transform ${classModifier} `}
+      fill="currentColor"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
       {polygon}
     </svg>
   );
+};
+
+Diagonal.propTypes = {
+  leftToRight: PropTypes.bool,
 };
 
 export default Diagonal;

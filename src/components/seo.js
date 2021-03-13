@@ -78,8 +78,6 @@ const SEO = ({ pageSeo = {} }) => {
   );
 };
 
-export default SEO;
-
 SEO.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
@@ -91,6 +89,8 @@ SEO.defaultProps = {
   description: null,
   image: null,
 };
+
+export default SEO;
 
 const query = graphql`
   query {

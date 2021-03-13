@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/layout";
-import Hero from "../components/Hero";
+import Hero from "../components/hero/Hero";
 import NavigationBlock from "../components/NavigationBlock";
 
 const IndexPage = () => {

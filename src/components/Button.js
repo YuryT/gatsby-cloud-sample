@@ -1,5 +1,6 @@
 import React from "react";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
+import PropTypes from "prop-types";
 
 const Button = (props) => {
   return (<AnchorLink to={props.url}
@@ -12,6 +13,11 @@ const Button = (props) => {
       {props.label}
     </AnchorLink>
   );
+};
+
+Button.propTypes = {
+  url: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default Button;
