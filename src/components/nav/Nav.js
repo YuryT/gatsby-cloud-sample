@@ -6,9 +6,11 @@ import Logo from "./Logo";
 
 const Nav = () => {
   const [mobileMenuCollapsed, setMobileMenuCollapsed] = useState(true);
-  const toggleMenuCollapsed = () => (
-    setMobileMenuCollapsed(!mobileMenuCollapsed)
-  );
+  const toggleMenuCollapsed = () => {
+    // TODO remove me
+    console.log(mobileMenuCollapsed);
+    setMobileMenuCollapsed(!mobileMenuCollapsed);
+  };
   const data = useStaticQuery(graphql`
     query {
       contentfulGlobal {
@@ -104,6 +106,6 @@ const hamburgerBtn = (toggleMenuCollapsed) => {
       </button>
     </div>
   );
-}
+};
 
 export default Nav;
